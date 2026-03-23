@@ -693,11 +693,8 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
-        --
-        -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        python = { 'ruff' },
+        javascript = { 'prettierd', 'prettier', stop_after_first = true },
       },
     },
   },
@@ -948,4 +945,4 @@ require('lazy').setup({
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 --
-vim.keymap.set('n', '<leader>e', '<CMD>Oil<CR>', { desc = 'Open Oil in CWD' })
+vim.keymap.set('n', '<leader>o', '<CMD>Oil<CR>', { desc = 'Open Oil in CWD' })
