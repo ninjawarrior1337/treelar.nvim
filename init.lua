@@ -243,6 +243,11 @@ end
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
+vim.filetype.add {
+  extension = {
+    ua = 'uiua',
+  },
+}
 -- [[ Configure and install plugins ]]
 --
 --  To check the current status of your plugins, run
@@ -607,7 +612,6 @@ require('lazy').setup({
         rust_analyzer = {},
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         ts_ls = {},
-
         stylua = {}, -- Used to format Lua code
 
         -- Special Lua Config, as recommended by neovim help docs
@@ -658,6 +662,7 @@ require('lazy').setup({
         vim.lsp.config(name, server)
         vim.lsp.enable(name)
       end
+      vim.lsp.enable 'uiua'
     end,
   },
 
@@ -770,6 +775,17 @@ require('lazy').setup({
         -- By default, you may press `<c-space>` to show the documentation.
         -- Optionally, set `auto_show = true` to show the documentation after a delay.
         documentation = { auto_show = false, auto_show_delay_ms = 500 },
+        accept = {
+          auto_brackets = {
+            kind_resolution = {
+              blocked_filetypes = { 'uiua' },
+            },
+
+            semantic_token_resolution = {
+              blocked_filetypes = { 'uiua' },
+            },
+          },
+        },
       },
 
       sources = {
@@ -868,7 +884,7 @@ require('lazy').setup({
     branch = 'main',
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter-intro`
     config = function()
-      local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
+      local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'typescript', 'python' }
       require('nvim-treesitter').install(parsers)
       vim.api.nvim_create_autocmd('FileType', {
         callback = function(args)
