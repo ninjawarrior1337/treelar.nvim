@@ -609,6 +609,7 @@ require('lazy').setup({
         -- clangd = {},
         gopls = {},
         basedpyright = {},
+        ruff = {},
         rust_analyzer = {},
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         ts_ls = {},
@@ -698,7 +699,7 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        python = { 'ruff' },
+        python = { 'ruff_format' },
         javascript = { 'prettierd', 'prettier', stop_after_first = true },
       },
     },
@@ -759,7 +760,7 @@ require('lazy').setup({
         -- <c-k>: Toggle signature help
         --
         -- See :h blink-cmp-config-keymap for defining your own keymap
-        preset = 'super-tab',
+        preset = 'enter',
 
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
