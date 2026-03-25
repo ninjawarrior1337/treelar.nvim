@@ -815,15 +815,28 @@ require('lazy').setup({
       signature = { enabled = true },
     },
   },
-
+  
   {
-    'rockyzhang24/arctic.nvim',
-    dependencies = { 'rktjmp/lush.nvim' },
-    name = 'arctic',
-    branch = 'main',
+    'Mofiqul/vscode.nvim',
+    name = "vscode",
+    branch = "main",
     priority = 1000,
-    config = function() vim.cmd 'colorscheme arctic' end,
+    opts = {},
+    config = function() 
+      vim.cmd.colorscheme "vscode"
+    end 
   },
+
+  -- {
+  --   'rockyzhang24/arctic.nvim',
+  --   dependencies = { 'rktjmp/lush.nvim' },
+  --   name = 'arctic',
+  --   branch = 'main',
+  --   priority = 1000,
+  --   config = function() vim.cmd 'colorscheme arctic' end,
+  -- },
+  --
+  --
   -- { -- You can easily change to a different colorscheme.
   --   -- Change the name of the colorscheme plugin below, and then
   --   -- change the command in the config to whatever the name of that colorscheme is.
