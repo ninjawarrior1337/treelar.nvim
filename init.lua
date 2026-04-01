@@ -621,6 +621,7 @@ require('lazy').setup({
             semanticTokens = 'disable',
           },
         },
+        ['tailwindcss-language-server'] = {},
 
         -- Special Lua Config, as recommended by neovim help docs
         lua_ls = {
