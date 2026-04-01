@@ -662,6 +662,7 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         -- You can add other tools here that you want Mason to install
+        'oxfmt',
       })
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -708,6 +709,7 @@ require('lazy').setup({
         lua = { 'stylua' },
         python = { 'ruff_format' },
         javascript = { 'prettierd', 'prettier', stop_after_first = true },
+        html = { 'oxfmt' },
       },
     },
   },
@@ -815,16 +817,14 @@ require('lazy').setup({
       signature = { enabled = true },
     },
   },
-  
+
   {
     'Mofiqul/vscode.nvim',
-    name = "vscode",
-    branch = "main",
+    name = 'vscode',
+    branch = 'main',
     priority = 1000,
     opts = {},
-    config = function() 
-      vim.cmd.colorscheme "vscode"
-    end 
+    config = function() vim.cmd.colorscheme 'vscode' end,
   },
 
   -- {
